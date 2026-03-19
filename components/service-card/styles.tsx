@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     marginTop: 7,
-    backgroundColor: "rgb(109, 57, 238)",
+    backgroundColor: "#634DBF",
     padding: 6,
     alignSelf: "flex-start",
     borderRadius: 5,
