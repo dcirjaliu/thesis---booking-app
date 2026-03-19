@@ -6,11 +6,14 @@ const styles = StyleSheet.create({
     height: 60,
     marginTop: 30,
     borderRadius: 15,
-    shadowColor: "#6231e2",
+
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.4,
     shadowRadius: 15,
     elevation: 8,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
   },
   gradient: {
     flex: 1,
@@ -22,7 +25,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   text: {
-    color: "#FFFFFF",
+    color: "#634DBF",
     fontSize: 18,
     fontWeight: "800",
     letterSpacing: 1.5,

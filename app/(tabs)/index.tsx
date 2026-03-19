@@ -1,12 +1,19 @@
-import { Text, View, StyleSheet } from "react-native"; // 1. Importă View și StyleSheet din 'react-native'
+import { Text, View, StyleSheet, Image } from "react-native";
 import LottieView from "lottie-react-native";
 import { useRef } from "react";
-import MainButton from "../../components/ui/main-btn/main-button";
+import { Link } from "expo-router";
+import MainButton from "../../components/main-btn/main-button";
 
 export default function HomeScreen() {
   const animation = useRef(null);
+
   return (
     <View style={styles.container}>
+      <Image
+        source={require("../../assets/images/logo.png")}
+        style={styles.imgWrapper}
+      />
+      <Text style={styles.heroTitle}>Rezervă-ți timpul, nu doar locul.</Text>
       <View style={styles.animationWrapper}>
         <LottieView
           autoPlay
@@ -20,14 +27,10 @@ export default function HomeScreen() {
           source={require("../../assets/animations/Time management.json")}
         />
       </View>
-      <Text style={styles.heroTitle}>
-        REZERVA-TI <Text style={styles.orangeText}>TIMPUL,</Text> NU DOAR{" "}
-        <Text style={styles.orangeText}>LOCUL.</Text>
-      </Text>
-      <Text style={styles.subheading}>
-        Gestionează-ți programul eficient în clădirile UPT.
-      </Text>
-      <MainButton children="Rezerva acum" />
+
+      <Link href="/auth/login" asChild>
+        <MainButton children="Rezervă acum" />
+      </Link>
     </View>
   );
 }
@@ -48,35 +51,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    display: "flex",
     justifyContent: "center",
-    alignItems: "flex-start",
-    backgroundColor: "white",
+    alignItems: "center",
+    backgroundColor: "#634DBF",
   },
   heroTitle: {
-    fontSize: 40,
-    fontWeight: "900",
-    color: "rgb(98, 49, 226)",
+    fontSize: 35,
+    fontWeight: "600",
+    color: "white",
     letterSpacing: 2,
+    textAlign: "center",
   },
 
-  orangeText: {
-    color: "#FFB84D",
-    fontWeight: "900",
-  },
   row: { flexDirection: "row", marginTop: 15 },
-  line: {
-    width: 20,
-    height: 3,
-    backgroundColor: "#FFB84D",
-    marginRight: 5,
-  },
   subheading: {
     fontSize: 16,
     color: "black",
     marginTop: 10,
     fontWeight: "400",
     letterSpacing: 0.5,
-    textAlign: "left",
+  },
+  imgWrapper: {
+    marginTop: 50,
+    width: 300,
+    height: 80,
+    alignSelf: "center",
+    resizeMode: "contain",
   },
 });
